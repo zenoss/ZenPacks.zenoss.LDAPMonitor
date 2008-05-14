@@ -19,7 +19,8 @@ from Products.ZenUtils.ZenTales import talesCompile, getEngine
 class LDAPMonitorDataSource(ZenPackPersistence, RRDDataSource.RRDDataSource):
     
     LDAP_MONITOR = 'LDAPMonitor'
-    
+    ZENPACKID = 'ZenPacks.zenoss.LDAPMonitor'
+
     sourcetypes = (LDAP_MONITOR,)
     sourcetype = LDAP_MONITOR
 
