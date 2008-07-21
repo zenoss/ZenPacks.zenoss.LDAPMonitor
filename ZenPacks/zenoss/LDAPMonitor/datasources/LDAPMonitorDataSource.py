@@ -15,6 +15,7 @@ import Products.ZenModel.RRDDataSource as RRDDataSource
 from Products.ZenModel.ZenPackPersistence import ZenPackPersistence
 from AccessControl import ClassSecurityInfo, Permissions
 from Products.ZenUtils.ZenTales import talesCompile, getEngine
+from Products.ZenUtils.Utils import binPath
 
 class LDAPMonitorDataSource(ZenPackPersistence, RRDDataSource.RRDDataSource):
     
@@ -81,7 +82,10 @@ class LDAPMonitorDataSource(ZenPackPersistence, RRDDataSource.RRDDataSource):
 
 
     def getCommand(self, context):
-        parts = self.useSSL and ['check_ldaps'] or ['check_ldap']
+        if self.useSSL:
+            parts = [binPath('check_ldaps')]
+        else:
+            parts = [binPath('check_ldap')]
         if self.ldapServer:
             parts.append('-H %s' % self.ldapServer)
         if self.ldapBaseDN:
@@ -96,8 +100,7 @@ class LDAPMonitorDataSource(ZenPackPersistence, RRDDataSource.RRDDataSource):
             parts.append('-t %d' % self.timeout)
 
         cmd = ' '.join(parts)
-        cmd = '$ZENHOME/libexec/' + \
-                    RRDDataSource.RRDDataSource.getCommand(self, context, cmd)
+        cmd = RRDDataSource.RRDDataSource.getCommand(self, context, cmd)
         return cmd
 
 
