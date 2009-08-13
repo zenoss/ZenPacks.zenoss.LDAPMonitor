@@ -25,6 +25,6 @@ class ZenPack(ZenPackBase):
     packZProperties = [
         ('zLDAPBaseDN', 'dc=zenoss,dc=com', 'string'),
         ('zLDAPBindDN', '', 'string'),
-        ('zLDAPBindPassword', '', 'string'),
+        ('zLDAPBindPassword', '', 'password'),
     ]
 
