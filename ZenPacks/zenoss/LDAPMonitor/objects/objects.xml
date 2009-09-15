@@ -60,6 +60,9 @@ True
 </tomanycont>
 <tomanycont id='thresholds'>
 <object id='BrokenLDAP' module='Products.ZenModel.MinMaxThreshold' class='MinMaxThreshold'>
+<property type="lines" id="dsnames" mode="w" >
+['ldap_time']
+</property>
 <property type="boolean" id="enabled" mode="w" >
 True
 </property>
