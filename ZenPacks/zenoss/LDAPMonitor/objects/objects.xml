@@ -37,6 +37,9 @@ ${here/zLDAPBindDN}
 <property type="string" id="ldapBindPassword" mode="w" >
 ${here/zLDAPBindPassword}
 </property>
+<property type="int" id="ldapBindVersion" mode="w" >
+2
+</property>
 <property type="boolean" id="useSSL" mode="w" >
 False
 </property>

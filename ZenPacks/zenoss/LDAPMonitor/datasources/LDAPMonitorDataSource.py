@@ -31,6 +31,7 @@ class LDAPMonitorDataSource(ZenPackPersistence, RRDDataSource.RRDDataSource):
     ldapBaseDN = '${here/zLDAPBaseDN}'
     ldapBindDN = '${here/zLDAPBindDN}'
     ldapBindPassword = '${here/zLDAPBindPassword}'
+    ldapBindVersion = 2
     useSSL = False
     port = 389
     timeout = 60
@@ -40,6 +41,7 @@ class LDAPMonitorDataSource(ZenPackPersistence, RRDDataSource.RRDDataSource):
         {'id':'ldapBaseDN', 'type':'string', 'mode':'w'},
         {'id':'ldapBindDN', 'type':'string', 'mode':'w'},
         {'id':'ldapBindPassword', 'type':'string', 'mode':'w'},
+        {'id':'ldapBindVersion', 'type':'int', 'mode':'w'},
         {'id':'useSSL', 'type':'boolean', 'mode':'w'},
         {'id':'port', 'type':'int', 'mode':'w'},
         {'id':'timeout', 'type':'int', 'mode':'w'},
@@ -94,6 +96,8 @@ class LDAPMonitorDataSource(ZenPackPersistence, RRDDataSource.RRDDataSource):
             parts.append('-D "%s"' % self.ldapBindDN)
         if self.ldapBindPassword:
             parts.append('-P "%s"' % self.ldapBindPassword)
+        if self.ldapBindVersion:
+            parts.append('--ver%d' % self.ldapBindVersion)
         if self.port:
             parts.append('-p %d' % self.port)
         if self.timeout:

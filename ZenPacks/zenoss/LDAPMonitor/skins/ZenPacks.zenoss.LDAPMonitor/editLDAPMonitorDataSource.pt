@@ -159,6 +159,16 @@
         </tr>
 
         <tr>
+            <td class="tableheader">Bind Version</td>
+            <td class="tablevalues" tal:condition="editable">
+            <input class="tablevalues" type="text" name="ldapBindVersion:int" size="10"
+                tal:attributes="value here/ldapBindVersion" />
+            </td>
+          <td class="tablevalues" tal:condition="not:editable" 
+                tal:content="here/ldapBindVersion"/>
+        </tr>
+
+        <tr>
             <td class="tableheader">Use SSL</td>
             <td class="tablevalues" tal:condition="editable">
                 <input class="tablevalues"
