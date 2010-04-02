@@ -2,13 +2,13 @@
 # These variables are overwritten by Zenoss when the ZenPack is exported
 # or saved.  Do not modify them directly here.
 NAME = 'ZenPacks.zenoss.LDAPMonitor'
-VERSION = '1.2.2'
+VERSION = '1.2.3'
 AUTHOR = 'zenoss'
 LICENSE = ''
 NAMESPACE_PACKAGES = ['ZenPacks', 'ZenPacks.zenoss']
 PACKAGES = ['ZenPacks', 'ZenPacks.zenoss', 'ZenPacks.zenoss.LDAPMonitor']
 INSTALL_REQUIRES = []
-COMPAT_ZENOSS_VERS = '>=2.3.70'
+COMPAT_ZENOSS_VERS = '>=2.5.70'
 PREV_ZENPACK_NAME = ''
 # STOP_REPLACEMENTS
 ################################
