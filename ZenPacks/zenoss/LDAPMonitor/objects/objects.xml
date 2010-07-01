@@ -51,6 +51,9 @@ False
 </property>
 <tomanycont id='datapoints'>
 <object id='time' module='Products.ZenModel.RRDDataPoint' class='RRDDataPoint'>
+<property type="text" id="zendoc" mode="w" >
+The amount of time it takes the server to respond
+</property>
 <property select_variable="rrdtypes" type="selection" id="rrdtype" mode="w" >
 GAUGE
 </property>
@@ -63,6 +66,9 @@ True
 </tomanycont>
 <tomanycont id='thresholds'>
 <object id='BrokenLDAP' module='Products.ZenModel.MinMaxThreshold' class='MinMaxThreshold'>
+<property type="text" id="zendoc" mode="w" >
+Alert sent if the server does not respond
+</property>
 <property type="lines" id="dsnames" mode="w" >
 ['ldap_time']
 </property>
@@ -83,6 +89,9 @@ True
 </property>
 </object>
 <object id='SlowLDAP' module='Products.ZenModel.MinMaxThreshold' class='MinMaxThreshold'>
+<property type="text" id="zendoc" mode="w" >
+Alert sent if the server is slow to respond
+</property>
 <property type="lines" id="dsnames" mode="w" >
 ['ldap_time']
 </property>
