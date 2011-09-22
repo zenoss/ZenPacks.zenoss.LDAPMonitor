@@ -18,7 +18,7 @@ from Products.ZenUtils.ZenTales import talesCompile, getEngine
 from Products.ZenUtils.Utils import binPath
 
 class LDAPMonitorDataSource(ZenPackPersistence, RRDDataSource.RRDDataSource):
-    
+
     LDAP_MONITOR = 'LDAPMonitor'
     ZENPACKID = 'ZenPacks.zenoss.LDAPMonitor'
 
@@ -26,7 +26,7 @@ class LDAPMonitorDataSource(ZenPackPersistence, RRDDataSource.RRDDataSource):
     sourcetype = LDAP_MONITOR
 
     eventClass = '/Status/LDAP'
-        
+
     ldapServer = '${dev/id}'
     ldapBaseDN = '${here/zLDAPBaseDN}'
     ldapBindDN = '${here/zLDAPBindDN}'
@@ -46,16 +46,16 @@ class LDAPMonitorDataSource(ZenPackPersistence, RRDDataSource.RRDDataSource):
         {'id':'port', 'type':'int', 'mode':'w'},
         {'id':'timeout', 'type':'int', 'mode':'w'},
         )
-        
+
     _relations = RRDDataSource.RRDDataSource._relations + (
         )
 
 
-    factory_type_information = ( 
-    { 
+    factory_type_information = (
+    {
         'immediate_view' : 'editLDAPMonitorDataSource',
         'actions'        :
-        ( 
+        (
             { 'id'            : 'edit',
               'name'          : 'Data Source',
               'action'        : 'editLDAPMonitorDataSource',
@@ -99,9 +99,9 @@ class LDAPMonitorDataSource(ZenPackPersistence, RRDDataSource.RRDDataSource):
         if self.ldapBindVersion:
             parts.append('--ver%s' % str(self.ldapBindVersion))
         if self.port:
-            parts.append('-p %d' % self.port)
+            parts.append('-p %s' % self.port)
         if self.timeout:
-            parts.append('-t %d' % self.timeout)
+            parts.append('-t %s' % self.timeout)
 
         cmd = ' '.join(parts)
         cmd = RRDDataSource.RRDDataSource.getCommand(self, context, cmd)
