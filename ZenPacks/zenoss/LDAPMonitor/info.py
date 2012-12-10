@@ -24,7 +24,7 @@ class LDAPMonitorDataSourceInfo(RRDDataSourceInfo):
     ldapBindVersion = ProxyProperty('ldapBindVersion')
     useSSL = ProxyProperty('useSSL')
     port = ProxyProperty('port')
-    
+    cycletime = ProxyProperty('cycletime')
     
     @property
     def testable(self):
