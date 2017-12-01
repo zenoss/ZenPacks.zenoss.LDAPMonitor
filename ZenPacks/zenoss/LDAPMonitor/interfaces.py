@@ -14,7 +14,7 @@ from Products.Zuul.utils import ZuulMessageFactory as _t
 
 
 class ILDAPMonitorDataSourceInfo(IRRDDataSourceInfo):
-    cycletime = schema.Int(title=_t(u'Cycle Time (seconds)'))
+    cycletime = schema.TextLine(title=_t(u'Cycle Time (seconds)'))
     timeout = schema.Int(title=_t(u'Timeout (seconds)'))
     ldapServer = schema.TextLine(title=_t(u'LDAP Server'), group=_t(u'LDAP'))
     ldapBindDN = schema.TextLine(title=_t(u'Bind Distinguished Name'), group=_t(u'LDAP'))
