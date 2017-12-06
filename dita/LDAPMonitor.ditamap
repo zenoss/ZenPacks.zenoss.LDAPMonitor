@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE map
+  PUBLIC "urn:pubid:zenoss.com:doctypes:dita:dtd:map" "map.dtd">
+<map>
+   <title>LDAPMonitor</title>
+   <topicref href="topics/LDAPMonitor.dita">
+      <topicref href="topics/LDAPMonitor_ref-Prerequisites.dita"/>
+      <topicref href="topics/LDAPMonitor_task-Enable-monitoring-for-a-device.dita"/>
+      <topicref href="topics/LDAPMonitor_ref-Daemons.dita"/>
+   </topicref>
+</map>

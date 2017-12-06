@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE task
+  PUBLIC "urn:pubid:zenoss.com:doctypes:dita:dtd:task" "task.dtd">
+<task id="d40e66"><title>Enable monitoring for a device</title><taskbody><context><note><p>The LDAPServer template must be bound to the device class or device
+      you want to monitor.</p></note></context><steps-informal><ol>
+        <li>
+          <p>Select Infrastructure from the navigation bar.</p>
+        </li>
+
+        <li>
+          <p>Click the device name in the device list.</p>
+
+          <p>The device overview page appears.</p>
+        </li>
+
+        <li>
+          <p>Select Configuration Properties from the left panel.</p>
+        </li>
+
+        <li>
+          <p>Modify configuration property values as needed for your
+          environment. Check with your LDAP administrator for more
+          information.</p>
+
+          <table>
+            <title>LDAPServer Configuration Properties</title>
+
+            <tgroup cols="2">
+
+              <thead>
+                <row>
+                  <entry>Property</entry>
+
+                  <entry>Description</entry>
+                </row>
+              </thead>
+
+              <tbody>
+                <row>
+                  <entry><p><varname>zLDAPBaseDN</varname></p></entry>
+
+                  <entry><p>The Base Distinguished Name for your LDAP
+                  server. Typically this is the organization's domain name
+                  (for example, <codeph outputclass="code">dc=foobar,dc=com)</codeph></p></entry>
+                </row>
+
+                <row>
+                  <entry><p><varname>zLDAPBindDN</varname></p></entry>
+
+                  <entry><p>The Distinguished Name to use for binding to
+                  the LDAP server, if authentication is
+                  required</p></entry>
+                </row>
+
+                <row>
+                  <entry><p><varname>zLDAPBindPassword</varname></p></entry>
+
+                  <entry><p>The password to use for binding to the LDAP
+                  server, if authentication is required</p></entry>
+                </row>
+              </tbody>
+            </tgroup>
+          </table>
+        </li>
+
+        <li>
+          <p>Click <b>Save</b>.</p>
+        </li>
+
+        <li>
+          <p>Expand Monitoring Templates, and then select Device from the
+          left panel.</p>
+        </li>
+
+        <li>
+          <p>Select Bind Templates from the Action menu.</p>
+
+          <p>The Bind Templates dialog appears.</p>
+        </li>
+
+        <li>
+          <p>Add the LDAPServer template to the list of selected templates,
+          and then click <b>Submit</b>.</p>
+
+          <p>The LDAPServer template is added to the list of monitoring
+          templates.</p>
+        </li>
+
+        <li>
+          <p>Select the LDAPServer template and change options as
+          needed.</p>
+
+          <table>
+            <title>LDAPServer Basic Data Source Options</title>
+
+            <tgroup cols="2">
+              <thead>
+                <row>
+                  <entry>Option</entry>
+
+                  <entry>Description</entry>
+                </row>
+              </thead>
+
+              <tbody>
+                <row>
+                  <entry><p>Port</p></entry>
+
+                  <entry><p>The port to connect to LDAP server (default
+                  389)</p></entry>
+                </row>
+
+                <row>
+                  <entry><p>Base Distinguished Name</p></entry>
+
+                  <entry><p>Defaults to
+                  <codeph outputclass="code">${here/zLDAPBaseDN}</codeph></p></entry>
+                </row>
+
+                <row>
+                  <entry><p>Bind Password</p></entry>
+
+                  <entry><p>Defaults to
+                  <codeph outputclass="code">${here/zLDAPBindPassword}</codeph></p></entry>
+                </row>
+
+                <row>
+                  <entry><p>Use SSL</p></entry>
+
+                  <entry><p>Use SSL for the connection</p></entry>
+                </row>
+              </tbody>
+            </tgroup>
+          </table>
+
+          <note>
+            <p>If your LDAP servers require SSL or a custom port, select
+            the ldap data source, and then change the Use SSL and Port fields
+            as needed.</p>
+          </note>
+        </li>
+
+        <li>
+          <p>Validate your configuration by running
+          <filepath>zencommand</filepath>. Verify that the
+          <filepath>check_ldap</filepath> or <filepath>check_ldaps</filepath>
+          command correctly connects to your LDAP server:</p>
+
+          <p><codeblock outputclass="screen">zencommand run -v10 -d yourdevicenamehere</codeblock></p>
+        </li>
+      </ol></steps-informal></taskbody></task>

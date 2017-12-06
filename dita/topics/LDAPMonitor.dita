@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE reference PUBLIC "urn:pubid:zenoss.com:doctypes:dita:dtd:reference" "reference.dtd">
+<reference id="referenceid">
+  <title>(LDAPMonitor) LDAP Monitor</title>
+  <shortdesc>The <zenpack>ZenPacks.zenoss.LDAPMonitor</zenpack> ZenPack monitors the response time of Lightweight
+    Directory Access Protocol (LDAP) servers.</shortdesc>
+  <refbody>
+    <section>
+      <p>The response time unit of measurement is milliseconds.</p>
+    </section>
+  </refbody>
+</reference>
